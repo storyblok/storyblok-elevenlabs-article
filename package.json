@@ -2,10 +2,6 @@
   "name": "elevenlabs-storyblok",
   "version": "1.0.0",
   "description": "",
-  "main": "vite-node src/index.ts",
-  "scripts": {
-    "start": "vite-node ./src/index.ts"
-  },
   "author": "",
   "license": "ISC",
   "type": "module",
@@ -19,6 +15,12 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
-    "vite-node": "^2.0.5"
+    "prettier": "^3.3.3"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": false
   }
 }
