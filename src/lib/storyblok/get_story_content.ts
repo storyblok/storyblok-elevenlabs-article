@@ -1,6 +1,9 @@
 import * as cheerio from "cheerio"
 import Storyblok from "./client"
 
+const titleSelector = "h1"
+const bodySelector = "[data-blog-content]"
+
 const getStoryUrl = async (
   spaceId: number,
   storyId: number
@@ -29,9 +32,7 @@ export const getStoryContent = async (
     const res = await fetch(urlToCrawl)
     const urlText = await res.text()
     const cheerioDocument = cheerio.load(urlText)
-    return `Article title: ${cheerioDocument("h1").text()}. <break time="1.0s" /> Article content: ${cheerioDocument(
-      "[data-blog-content]"
-    ).text()}`
+    return `Article title: ${cheerioDocument(titleSelector).text()}. <break time="1.0s" /> Article content: ${cheerioDocument(bodySelector).text()}`
   } catch (err) {
     console.log(err)
     return ""
